@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://code.alibabatech.com/schema/dubbo 
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">  -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+	<dubbo:application name="tvmall-dubboservice2"/>	
+	
+	<dubbo:registry address="192.168.180.10:2181,192.168.180.11:2181,192.168.180.12:2181" protocol="zookeeper"></dubbo:registry>
+	
+	<dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>	
+	
+	
+	<!-- <dubbo:service interface="com.bjsxt.dubbo.service.MenuDubboService" ref="menuServiceImpl" loadbalance="roundrobin"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="menuServiceImpl" class="com.bjsxt.dubbo.service.impl.MenuDubboServiceImpl"></bean> -->
+	<!--   暴露商品分类管理接口
+	<dubbo:service interface="com.zhengke.service.GoodsClassService" ref="goodsClassServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="goodsClassServiceImpl" class="com.zhengke.service.GoodsClassServiceImpl"></bean>
+	  登录 
+	<dubbo:service interface="com.zhengke.service.LoginService" ref="loginServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="loginServiceImpl" class="com.zhengke.service.LoginServiceImpl"></bean>
+	
+	订单
+	<dubbo:service interface="com.zhengke.service.OrderService" ref="orderServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="orderServiceImpl" class="com.zhengke.service.OrderServiceImpl"></bean>
+	
+	xtgl010
+	<dubbo:service interface="com.zhengke.service.sysmgr.XTGL010Service" ref="xtgl010ServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="xtgl010ServiceImpl" class="com.zhengke.service.sysmgr.XTGL010ServiceImpl"></bean>
+	xtgl020
+	<dubbo:service interface="com.zhengke.service.sysmgr.XTGL020Service" ref="xtgl020ServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="xtgl020ServiceImpl" class="com.zhengke.service.sysmgr.XTGL020ServiceImpl"></bean>
+	xtgl030
+	<dubbo:service interface="com.zhengke.service.sysmgr.XTGL030Service" ref="xtgl030ServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="xtgl030ServiceImpl" class="com.zhengke.service.sysmgr.XTGL030ServiceImpl"></bean>
+	xtgl040
+	<dubbo:service interface="com.zhengke.service.sysmgr.XTGL040Service" ref="xtgl040ServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="xtgl040ServiceImpl" class="com.zhengke.service.sysmgr.XTGL040ServiceImpl"></bean>
+	
+	数据字典
+	<dubbo:service interface="com.zhengke.service.directory.DictionaryService" ref="dictionaryServiceImpl" loadbalance="random"
+	   cluster="failover" retries="2"></dubbo:service>
+	<bean id="dictionaryServiceImpl" class="com.zhengke.service.directory.DictionaryServiceImpl"></bean>  -->
+	
+	<dubbo:annotation package="com.zhengke"/>
+	<!-- 同时把spring配置文件也加载 -->
+	<import resource="../../applicationContext.xml"/>
+</beans>
+

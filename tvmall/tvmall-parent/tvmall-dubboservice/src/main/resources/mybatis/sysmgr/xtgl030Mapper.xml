@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 	
+<mapper namespace="xtgl030Mapper">
+
+
+	<resultMap id="SysPopedomMap" type="com.zhengke.pojo.SysPopedom">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="menu_id" property="menuId" jdbcType="VARCHAR" />
+		<result column="item_code" property="itemCode" jdbcType="VARCHAR" />
+		<result column="item_name" property="itemName" jdbcType="VARCHAR" />
+		<result column="item_type" property="itemType" jdbcType="TINYINT" />
+		<result column="create_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="create_user" property="createUser" jdbcType="VARCHAR" />
+		<result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+	</resultMap>
+  
+	<!-- 查询角色信息， 分页 -->
+	<select id="queryRole" parameterType="java.util.Map" resultType="java.util.Map">
+		select  sr.* from sys_roles sr
+	</select>
+	
+	<!-- 查询拥有当前角色的所有用户 -->
+	<select id="queryRoleUser" parameterType="java.util.Map" resultType="java.util.Map">
+	      select user_id,role_id from Sys_role_User where role_id=#{roleId}
+	</select>
+	
+	
+	<!-- 添加一个角色 -->
+	<insert id="saveRoles" parameterType="com.zhengke.pojo.SysRoles">
+		insert into sys_roles
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				role_id,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="createUser != null">
+				create_user,
+			</if>			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				#{roleId,jdbcType=INTEGER},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=VARCHAR},
+			</if>			
+		</trim>
+	</insert>
+	
+	<!-- 修改角色信息 -->
+	<update id="updateRoles" parameterType="com.zhengke.pojo.SysRoles">
+		update sys_roles
+		<set>
+			<if test="roleName != null">
+				role_name = #{roleName,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=VARCHAR},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser,jdbcType=VARCHAR},
+			</if>		
+		</set>
+		where role_id = #{roleId,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 删除角色 -->
+	<delete id="deleteRoles" parameterType="java.lang.Integer">
+		delete from sys_roles where role_id=#{value}
+	</delete>
+
+	<!-- 查找selectSysPopedom 对象 -->
+	<select id="selectSysPopedom" resultMap="SysPopedomMap"
+		parameterType="java.lang.Integer">
+		select
+		sp.id, sp.menu_id, sp.item_code, sp.item_name, sp.item_type,
+		sp.createUser, sp.createDate, sp.updateUser, sp.updateDate
+		from sys_popedom sp,sys_menu sm
+		where sp.menu_id = sm.menu_id and sm.lev=1 and sp.item_type='1'
+	</select>
+
+	<!-- 查询子菜单存在 -->
+	<select id="selectnum1" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		SELECT
+		COUNT(*)
+		from sys_role_rights
+		where role_id = ${roleId} and popedom_id = ${popId}
+	</select>
+
+	<!-- 二级菜单查询11 -->
+
+	<select id="selectmap1" resultType="java.util.Map"
+		parameterType="String">
+		SELECT
+		sp.id,sp.menu_id,sp.item_name,sm.url
+		from sys_popedom sp inner join sys_menu sm on sp.menu_id=sm.menu_id
+		and sm.pmenu_id= #{_parameter} and sm.lev=2 and item_type='1';
+	</select>
+
+	<!-- 添加功能项目查询 -->
+
+	<select id="selectmap2" resultType="java.util.Map"
+		parameterType="java.util.Map">
+		SELECT a.id,a.menu_id,a.item_code,a.item_name, CASE ( SELECT 1
+		FROM sys_role_rights b
+		WHERE a.id=b.popedom_id AND b.role_id = ${roleId}
+		) WHEN 1 THEN 'checked' ELSE '' END checked
+		FROM sys_popedom a
+		WHERE a.menu_id= ${menuId} and a.item_type='0' order by a.item_code
+	</select>
+
+	<!-- 3级菜单查询 -->
+	<select id="selectmap3" resultType="java.util.Map"
+		parameterType="String">
+		SELECT
+		sp.id,sp.menu_id,sp.item_name,sm.url
+		from Sys_Popedom sp inner join sys_menu sm on sp.menu_id=sm.menu_id
+		and sm.pmenu_id= #{_parameter} and item_type='1';
+	</select>
+	
+	<delete id="deletePopedomRoles" parameterType="java.lang.Integer">
+		delete from sys_role_rights where role_id=#{value} 
+	</delete>
+	
+	<insert id="savePopedomRoles" parameterType="java.util.List">
+	    insert into sys_role_rights (role_id, popedom_id, create_time, create_user_id, create_user_name)
+	    values 
+    	<foreach collection="list" item="emp" index="index" separator=",">
+            (#{emp.roleId}, #{emp.popedomId}, #{emp.createTime}, #{emp.createUserId}, #{emp.createUserName})
+        </foreach>
+	</insert>
+</mapper>

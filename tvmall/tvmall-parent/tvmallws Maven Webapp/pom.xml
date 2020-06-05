@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+    <groupId>com.zhengke</groupId>
+    <artifactId>tvmall-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent> 
+  <artifactId>tvmallws</artifactId>
+  <packaging>war</packaging>
+  <name>tvmallws</name>
+  <dependencies>
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>3.8.1</version>
+	      <scope>test</scope>
+	    </dependency>
+	    
+	   <!-- hibernate 核心包 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>4.3.8.Final</version>
+		</dependency>
+		<!-- hibernate-c3p0 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>4.3.8.Final</version>
+		</dependency>
+        <!-- struts2 核心 -->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-core</artifactId>
+		    <version>2.5.20</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-json-plugin</artifactId>
+		    <version>2.5.20</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-spring-plugin -->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-spring-plugin</artifactId>
+		    <version>2.5.20</version>
+		</dependency>
+		
+		
+		
+		<!-- spring core -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<!-- spring context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		</dependency>
+		<!-- spring beans -->
+	    <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		</dependency>
+		<!-- spring aop -->
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<!-- spring 事务 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		</dependency>
+		<!-- spring jdbc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<!--spring-orm -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>4.3.25.RELEASE</version>
+		</dependency>
+		
+        <!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+		<!-- log4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<!-- 文件上传 -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>commons-httpclient</groupId>
+		    <artifactId>commons-httpclient</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- poi 导出excel -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		</dependency>
+  </dependencies>
+  <build>
+    <finalName>tvmallws</finalName>
+    <plugins>
+           <plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 直接访问 Tomcat 服务器的 manager -->
+					<url>http://localhost:8091/manager/text</url>
+					<server>tomcat9</server>
+					<username>zhengke</username>
+					<password>java02</password>
+					<update>true</update>
+					<port>8091</port>
+					<uriEncoding>UTF-8</uriEncoding>
+					<!-- <path>/tvmallws</path> -->
+				</configuration>
+			</plugin>
+    </plugins>
+  </build>
+</project>

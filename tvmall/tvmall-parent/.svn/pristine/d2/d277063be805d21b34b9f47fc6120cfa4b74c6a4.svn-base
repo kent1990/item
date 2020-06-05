@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.multipart.maxSize" value="32000000"/>
+	
+	
+	<package name="main" namespace="/" extends="json-default">
+		<interceptors>
+			<!-- 自定义拦截器 -->
+			 <!-- <interceptor name="myInterceptor"
+				class="com.jp.tv.common.interceptor.AuthorityInterceptor" /> -->
+			<!-- 加载到拦截器栈 -->
+			<interceptor-stack name="myInterceptorStack">
+				<!--struts的默认拦截器-->
+				<!-- <interceptor-ref name="myInterceptor"></interceptor-ref> -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myInterceptorStack" />
+		<!-- 全局跳转 -->
+		<global-results>
+			<result name="login">/login.jsp</result>
+			<result name="ajaxResult" type="json">
+				<param name="root">json</param>
+			</result>
+			<!-- <result name="global-error">/WEB-INF/pages/common/global-error.jsp</result> -->
+		</global-results>
+		<!-- 全局的出错处理 -->
+	 	<!-- <global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"	result="global-error" />
+		</global-exception-mappings>  -->
+		<!-- 商城入口 -->		
+		<action name="home" class="MasukAction" method="home">
+			<result name="info" >/WEB-INF/pages/tv/home/info.jsp</result>
+			<result name="home" >/WEB-INF/pages/index.jsp</result>
+		</action>
+		
+		<action name="masuk" class="MasukAction" method="masuk">
+			<result name="masuk" >/WEB-INF/pages/masuk.jsp</result>
+		</action>
+		<action name="toAdv" class="MasukAction" method="toAdv">
+			<result name="toAdv" >/WEB-INF/pages/tv/adv/adv.jsp</result>
+		</action>
+		<action name="call" class="MasukAction" method="call"></action>
+		<action name="news" class="MasukAction" method="news"></action>
+		<!-- 查询首页图片 -->
+		<action name="queryPics" class="MasukAction" method="queryPics"></action>
+		<!-- 查询机顶盒进入页面图片 -->
+		<action name="queryMasuk" class="MasukAction" method="queryMasuk"></action>
+ 		<!-- 查看图片 -->
+		<action name="view" class="ViewPicAction" method="view"></action>
+		<action name="viewRelative" class="ViewPicAction" method="viewRelative"></action>
+		<!-- 打折商品 -->
+		<action name="toDiscountList" class="DiscountAction" method="toDiscountList">
+			<result name="toDiscountList">/WEB-INF/pages/tv/discount/discountList.jsp</result>
+		</action>
+		<!-- 打折商品数据 -->
+		<action name="discountData" class="DiscountAction" method="discountData"></action>	
+					
+		<!-- 商品详情 -->	
+		<action name="toGoodsDetail" class="GoodsDetailAction" method="toGoodsDetail">
+			<result name="toGoodsDetail" >/WEB-INF/pages/tv/goodsDetail/goodsDetail.jsp</result>
+		</action>
+		<!-- 生成订单预览 -->
+		<action name="toOrderPage" class="GoodsDetailAction" method="toOrderPage" >
+			<result name="toOrderPage">/WEB-INF/pages/tv/goodsDetail/orderPage.jsp</result>
+			<result name="setDeliverWay">/WEB-INF/pages/tv/goodsDetail/setDeliveryWay.jsp</result>
+		</action>
+		<!-- 设置收货方式 -->
+		<action name="doSetDeliveryWay" class="GoodsDetailAction" method="doSetDeliveryWay">
+		</action>
+		<!-- 到设置收货时间页面 -->
+		<action name="toSetTime" class="GoodsDetailAction" method="toSetTime">
+			<result name="toSetTime">/WEB-INF/pages/tv/goodsDetail/setReceiptTime.jsp</result>
+		</action>
+		<!-- 查询系统设置的收货时间 -->
+		<action name="queryReceiptTime" class="GoodsDetailAction" method="queryReceiptTime"></action>
+		<!-- 设置收货时间 -->
+		<action name="setReceiptTime" class="GoodsDetailAction" method="setReceiptTime"></action>
+		<!-- 生成订单 -->
+		<action name="createOrder" class="GoodsDetailAction" method="createOrder"></action>
+		<action name="toTips" class="GoodsDetailAction" method="toTips">
+		   <result name="tips" >/WEB-INF/pages/tv/goodsDetail/tips.jsp</result>
+		</action>
+		<!-- 供应商信息 -->
+		<action name="toSupplierDetail" class="GoodsDetailAction" method="toSupplierDetail">
+			<result name="toSupplierDetail">/WEB-INF/pages/tv/goodsDetail/supplierDetail.jsp</result>
+		</action>
+		
+		<!-- 品牌列表 -->
+		<action name="toBrandList" class="BrandAction" method="toBrandList">
+			<result name="toBrandList">/WEB-INF/pages/tv/brand/brandList.jsp</result>
+		</action>
+		<!-- 品牌列表数据 -->
+		<action name="brandData" class="BrandAction" method="brandData"></action>
+		<!-- 品牌商品 -->
+		<action name="toBrandGoodList" class="BrandAction" method="toBrandGoodList">
+			<result name="toBrandGoodList">/WEB-INF/pages/tv/brand/brandGoodList.jsp</result>
+		</action>
+		<!-- 品牌商品列表 -->
+		<action name="brandGoodData" class="BrandAction" method="brandGoodData"></action>	
+		<!-- 品牌商品详情 -->
+		<action name="toDetail" class="BrandAction" method="toDetail">
+			<result name="goodsDetail">/WEB-INF/pages/tv/brand/goodsDetail.jsp</result>
+		</action>
+		
+		<!-- 销售排行 -->
+		<action name="toSalesList" class="SalesAction" method="toSalesList">
+			<result name="toSalesList">/WEB-INF/pages/tv/sales/salesList.jsp</result>
+		</action>
+		<!-- 销售排行商品列表 -->
+		<action name="salesData" class="SalesAction" method="salesData"></action>
+		
+		<!-- 体验商品 -->
+		<action name="toExperieList" class="ExperieAction" method="toExperieList">
+			<result name="toExperieList">/WEB-INF/pages/tv/experie/experieList.jsp</result>
+		</action>
+		<!-- 体验商品列表 -->
+		<action name="experieData" class="ExperieAction" method="experieData"></action>
+		
+		<!-- 积分商城 -->
+		<action name="toIntegralList" class="IntegralAction" method="toIntegralList">
+			<result name="toIntegralList">/WEB-INF/pages/tv/integral/integralList.jsp</result>
+		</action>
+		<!-- 积分商城商品列表 -->
+		<action name="integralData" class="IntegralAction" method="integralData"></action>
+		
+		<!-- 帮助列表 -->
+		<action name="toHelpList" class="HelpAction" method="toHelpList">
+			<result name="toHelpList">/WEB-INF/pages/tv/helpCenter/helpList.jsp</result>
+		</action>
+		<!-- 帮助列表数据 -->
+		<action name="helpData" class="HelpAction" method="helpData"></action>
+		<!-- 到帮助详情页面 -->
+		<action name="toHelpDetail" class="HelpAction" method="toHelpDetail">
+			<result name="toHelpDetail">/WEB-INF/pages/tv/helpCenter/helpDetail.jsp</result>
+		</action>
+		<!-- 帮助详情 -->
+		<action name="helpDetail" class="HelpAction" method="helpDetail"></action>
+		
+		<!-- 我的账户 -->
+		<action name="toAccountCenter" class="AccountAction" method="toAccountCenter">
+			<result name="toAccountCenter">/WEB-INF/pages/tv/accountCenter/accountCenter.jsp</result>
+		</action>
+		<!-- 到订单列表页面 -->
+		<action name="toOrdersData" class="AccountAction" method="toOrdersData">
+			<result name="toOrdersData">/WEB-INF/pages/tv/accountCenter/accountCenterData.jsp</result>
+		</action>
+		<!-- 订单列表 -->
+		<action name="ordersData" class="AccountAction" method="ordersData"></action>
+		<!-- 订单详情 -->
+		<action name="toOrderDetail" class="AccountAction" method="toOrderDetail">
+			<result name="toOrderDetail">/WEB-INF/pages/tv/accountCenter/orderDetail.jsp</result>
+		</action>
+		<!-- 到个人中心页面 -->
+		<action name="toUserCenter" class="AccountAction" method="toUserCenter">
+			<result name="toUserCenter">/WEB-INF/pages/tv/accountCenter/userCenter.jsp</result>
+		</action>
+		<!-- 查询个人中心信息 -->
+		<action name="userData" class="AccountAction" method="userData"></action>
+		<!-- 到送货信息页面 -->
+		<action name="toDeliveryTime" class="AccountAction" method="toDeliveryTime">
+			<result name="toDeliveryTime">/WEB-INF/pages/tv/accountCenter/deliveryTime.jsp</result>
+		</action>
+		<!-- 查询送货时间 -->
+		<action name="deliveryTime" class="AccountAction" method="deliveryTime"></action>
+		<!-- 设置送货时间 -->
+		<action name="setDeliveryTime" class="AccountAction" method="setDeliveryTime"></action>
+		
+		
+		<!-- 分类列表 -->
+		<action name="toTypeList" class="TypeAction" method="toTypeList">
+			<result name="toTypeList">/WEB-INF/pages/tv/type/typeList.jsp</result>
+		</action>
+		<!-- 分类列表数据 -->
+		<action name="typeData" class="TypeAction" method="typeData"></action>
+		<!-- 分类商品 -->
+		<action name="toTypeGoodList" class="TypeAction" method="toTypeGoodList">
+			<result name="toTypeGoodList">/WEB-INF/pages/tv/type/typeGoodList.jsp</result>
+		</action>
+		<!-- 分类商品列表 -->
+		<action name="typeGoodData" class="TypeAction" method="typeGoodData"></action>	
+		<!-- 轮播 -->
+		<action name="lunbo" class="LunboAction">
+		    <result name="toLunbo">/WEB-INF/pages/tv/lunbo/lunbo.jsp</result>
+		</action>	
+	</package> 
+</struts>

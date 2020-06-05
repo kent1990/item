@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loginMapper">
+	<!-- 取系统菜单 -->
+	<select id="queryMenu" resultType="java.util.Map" parameterType="java.lang.Integer">
+		select
+		sm.menu_id, sm.icon, sm.rel, sm.menu_name, sm.url, sm.lev, sm.pmenu_id,
+		sm.menuOrder
+		from sys_menu sm where sm.lev=#{value}
+	</select>
+		
+	<!-- 查询权限项信息 -->
+	<select id="queryPopedom" parameterType="map" resultType="map">
+		SELECT distinct sp.id,sp.menu_id,sp.item_code,sp.item_name,sp.item_type
+		FROM sys_popedom sp,sys_role_rights srr,sys_role_user sru
+		WHERE srr.popedom_id=sp.id AND srr.role_id=sru.role_id AND sru.user_id=#{userId}
+	</select>
+	
+	<!-- 查询所有权限项信息 -->
+	<select id="queryAllPopedom" parameterType="map" resultType="map">
+		SELECT sp.id,sp.menu_id,sp.item_code,sp.item_name,sp.item_type
+		FROM sys_popedom sp
+		WHERE 1=1
+	</select>
+	
+</mapper>

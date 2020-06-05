@@ -1,0 +1,14 @@
+com\zhengke\service\LoginServiceImpl.class
+com\zhengke\test\DubboTest.class
+com\zhengke\dao\SysDictionaryMapper.class
+com\zhengke\service\OrderServiceImpl.class
+com\zhengke\service\sysmgr\XTGL030ServiceImpl.class
+com\zhengke\dao\SysDictionaryItemMapper.class
+com\zhengke\service\sysmgr\XTGL040ServiceImpl.class
+com\zhengke\service\directory\DictionaryServiceImpl.class
+com\zhengke\service\sysmgr\XTGL020ServiceImpl.class
+com\zhengke\common\dao\CommonDaoImpl.class
+com\zhengke\service\GoodsClassServiceImpl.class
+com\zhengke\common\dao\CommonDao.class
+com\zhengke\service\sysmgr\XTGL010ServiceImpl.class
+com\zhengke\dao\MallGoodsClassDao.class

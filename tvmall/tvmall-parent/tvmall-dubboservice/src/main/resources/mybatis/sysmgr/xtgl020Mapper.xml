@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xtgl020Mapper">
+
+	<!-- 查询权限项，分页 -->
+	<select id="queryPopedom" parameterType="java.util.Map" resultType="java.util.Map">
+		select sp.id, sp.menu_id, sp.item_code, sp.item_name, sp.item_type from sys_popedom sp 
+		order by sp.menu_id, sp.item_type desc, sp.id 
+	</select>
+	
+	<!-- 查询菜单的权限项 -->
+	<select id="queryMenuPopedom" resultType="java.util.Map">
+		select * from sys_popedom sp where sp.item_type=1 order by sp.menu_id
+	</select>
+	
+	<!-- 保存一个菜单 -->
+	<insert id="savePopedom" parameterType="com.zhengke.pojo.SysPopedom">
+		insert into sys_popedom
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="menuId != null">
+				menu_id,
+			</if>
+			<if test="itemCode != null">
+				item_code,
+			</if>
+			<if test="itemName != null">
+				item_name,
+			</if>
+			<if test="itemType != null">
+				item_type,
+			</if>
+			<if test="createTime != null">
+				createDate,
+			</if>
+			<if test="createUser != null">
+				createUser,
+			</if>
+			<if test="updateTime != null">
+				updateDate,
+			</if>
+			<if test="updateUser != null">
+				updateUser,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="menuId != null">
+				#{menuId,jdbcType=VARCHAR},
+			</if>
+			<if test="itemCode != null">
+				#{itemCode,jdbcType=VARCHAR},
+			</if>
+			<if test="itemName != null">
+				#{itemName,jdbcType=VARCHAR},
+			</if>
+			<if test="itemType != null">
+				#{itemType,jdbcType=TINYINT},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=VARCHAR},
+			</if>
+			<if test="createUser != null">
+				#{createUser,jdbcType=VARCHAR},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUser != null">
+				#{updateUser,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	
+	<!-- 修改一个权限项 -->
+	<update id="updatePopedom" parameterType="com.zhengke.pojo.SysPopedom">
+		update sys_popedom
+		<set>
+			<if test="menuId != null">
+				menu_id = #{menuId,jdbcType=VARCHAR},
+			</if>
+			<if test="itemCode != null">
+				item_code = #{itemCode,jdbcType=VARCHAR},
+			</if>
+			<if test="itemName != null">
+				item_name = #{itemName,jdbcType=VARCHAR},
+			</if>
+			<if test="itemType != null">
+				item_type = #{itemType,jdbcType=TINYINT},
+			</if>
+			<if test="createTime != null">
+				createDate = #{createTime,jdbcType=VARCHAR},
+			</if>
+			<if test="createUser != null">
+				createUser = #{createUser,jdbcType=VARCHAR},
+			</if>
+			<if test="updateTime != null">
+				updateDate = #{updateTime,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUser != null">
+				updateUser = #{updateUser,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<delete id="deletePopedom" parameterType="java.lang.Integer">
+		delete from sys_popedom
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+</mapper>

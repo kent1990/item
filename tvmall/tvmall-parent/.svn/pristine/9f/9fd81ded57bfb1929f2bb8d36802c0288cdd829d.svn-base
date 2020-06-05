@@ -1,0 +1,93 @@
+﻿@charset "utf-8";
+/* CSS Document */
+#bg{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1280px;
+	height:720px;
+	background:url(../../images/common/tvbg_pic.jpg) no-repeat;
+	
+}
+#pre{
+	position: absolute;
+	left: 65px;
+	top: 263px;
+	width: 51px;
+	height: 86px;
+	z-index: 10;
+}
+#next{
+	position: absolute;
+	left: 1145px;
+	top: 263px;
+	width: 51px;
+	height: 86px;
+	z-index: 10;
+}
+#newsbg1{
+	position: absolute;
+	width: 1180px;
+	height: 690px;
+	top: 30px;
+	text-align: center;
+	left: 45px;
+	
+	
+}
+#newsbg1 img{
+	width:auto;
+	height:600px;
+
+}
+
+#newstop{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1280px;
+	height:80px;
+	background-color:#6c4867;
+	opacity: 0.75;
+}
+#topcontent{
+	position:absolute;
+	left:50px;
+	top:0px;
+	width:1180px;
+	height:80px;
+	font-size:26px;
+	line-height:40px;
+	color:#d1ccdb;	
+	text-align:center;	
+	overflow:hidden;	
+}
+#newsbottom{
+	position:absolute;
+	left:0px;
+	top:630px;
+	width:1280px;
+	height:80px;
+	font-size:26px;
+	line-height:40px;
+	background-color:#6c4867;
+	opacity: 0.75;
+}
+#bottomcontent{
+	position:absolute;
+	left:50px;
+	top:0px;
+	width:1180px;
+	height:80px;
+	font-size:26px;
+	line-height:40px;
+	color:#d1ccdb;	
+	text-align:center;	
+	overflow:hidden;	
+}
+#page{
+	position: absolute;
+	left: 1140px;
+	top: 73px;
+	z-index: 10;
+}

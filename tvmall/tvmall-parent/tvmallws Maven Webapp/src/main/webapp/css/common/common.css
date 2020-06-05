@@ -1,0 +1,149 @@
+@charset "utf-8";
+html,body,div,ul,li,span,img{
+	margin:0px;padding:0px;
+}
+html{
+	font-family:'黑体';
+}
+body{
+	background-color:#3a5e96;
+}
+ul, ol, li {list-style-type:none;vertical-align:0}
+.clear{clear:both;}
+#logo{
+	position:absolute;
+	left:61px;
+	top:30px;
+	width:536px;
+	height:62px;
+	background:url('../../images/logo.png') no-repeat;
+}
+#date{
+	font-size:20px;
+	color:#f1f1f1;
+}
+#minutes{
+  	font-size:30px;
+  	color:#f1f1f1;
+  	line-height:50px;
+}
+#format_date{
+	position:absolute;
+	left:122px;
+	bottom:0px;
+	height:24px;
+	font-size:22px;
+	line-height:24px;
+}
+#week{
+	font-size:25px;
+	color:#f1f1f1;
+}
+.time_minutes,.time_across,.time_date{
+	float:left;
+}
+.time_across{
+	margin-left:15px;
+	margin-right:10px;
+}
+
+#channel_title{
+  position: absolute;
+  left: 63px;
+  top: 30px;
+  width:900px;
+  height:38px;
+  font-size: 38px;
+  font-family: "黑体";
+  color: rgba( 241, 241, 241, 0.8 );
+  line-height: 38px;
+  font-weight:bold;
+}
+
+#hncatv_logo{
+	position:absolute;
+	left:1086px;
+	top:30px;
+	width:130px;
+	height:57px;
+	background:url('../../images/hncatv_logo.png') no-repeat;
+}
+
+#bar{
+	position:absolute;
+	width:14px;
+	height:520px;
+	left:1215px;
+	top:102px;
+}
+#bar img{
+	width:14px;
+	display:block;
+}
+#inner_bar{
+	position:absolute;
+	width:14px;
+	top:0px;
+	transition:200ms;
+	-webkit-transition:200ms;
+}
+.focus{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	transition:100ms;
+	-webkit-transition:100ms;
+	border:solid 5px #fdb00c;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	z-index:999;
+	margin-left:-5px;
+	margin-top:-5px;
+}
+.focus1{
+	transition:100ms;
+	-webkit-transition:100ms;
+	border:solid 5px #fdb00c;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	z-index:999;
+}
+.focus2{
+	border:solid 5px #fdb00c;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	z-index:999;
+	margin-left:-5px;
+	margin-top:-5px;
+}
+.focus3{
+	transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	transition:100ms;
+	-webkit-transition:100ms;
+	z-index:999;
+	margin-left:-3px;
+	margin-top:3px;
+}
+
+#div_3_0 {
+  position: absolute;
+  top: 63px;
+  width: 15px;
+  height: 29px;
+}
+#pre{
+	position:absolute;
+	left:70px;
+	top:250px;
+	width:51px;
+	height:86px;
+	z-index:10;
+}
+#next{
+	position:absolute;
+	left:1150px;
+	top:250px;
+	width:51px;
+	height:86px;
+	z-index:10;
+}
