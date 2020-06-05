@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="">
+		<title>众筹中原-提供您身边的万元股权投资项目</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/common.css" />
+
+		<link rel="stylesheet" href="css/Account_center.css" />
+		<style>
+			.ltem_1 {
+				position: relative;
+				padding-bottom: 12px;
+			}
+			
+			.ltem_1 input {
+				border: 1px solid #909090 !important;
+				outline: none !important;
+				width: 380px;
+				border-radius: 3px !important;
+				padding: 10px 0 !important;
+				line-height: 20px !important;
+			}
+			
+			.ltem_1 label {
+				/*position: absolute;
+				left:90px;*/
+			}
+			
+			.ltem_1 .list_head {
+				width: 120px;
+				display: inline-block;
+				text-align: right;
+				margin-right: 15px;
+				font-size: 16px;
+			}
+			
+			.ltem_1 select {
+				width: 120px;
+				font-size: 16px;
+				font-weight: normal;
+				padding: 5px 0;
+				border-radius: 3px;
+			}
+			
+			.head_img_up {
+				width: 600px;
+				text-align: center;
+			}
+			
+			.head_img_up img {
+				width: 130px;
+				height: 130px;
+				border-radius: 50%;
+			}
+			
+			.upload_btn {
+				border: none;
+				width: 100px;
+				height: 40px;
+				color: #fff;
+				font-size: 14px;
+				line-height: 40px;
+				position: relative;
+				margin: 10px auto 40px auto;
+				border-radius: 5px;
+			}
+			
+			.upload_btn input {
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#imghead {
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+			}
+		</style>
+		<script type="text/javascript">
+			//图片上传预览    IE是用了滤镜。
+			function previewImage(file) {
+				var MAXWIDTH = 260;
+				var MAXHEIGHT = 180;
+				var div = document.getElementById('preview');
+				if(file.files && file.files[0]) {
+					div.innerHTML = '<img id=imghead>';
+					var img = document.getElementById('imghead');
+					img.onload = function() {
+						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+						img.width = rect.width;
+						img.height = rect.height;
+						//                 img.style.marginLeft = rect.left+'px';
+						img.style.marginTop = rect.top + 'px';
+					}
+					var reader = new FileReader();
+					reader.onload = function(evt) { img.src = evt.target.result; }
+					reader.readAsDataURL(file.files[0]);
+				} else //兼容IE
+				{
+					var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+					file.select();
+					var src = document.selection.createRange().text;
+					div.innerHTML = '<img id=imghead>';
+					var img = document.getElementById('imghead');
+					img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+					var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+					status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
+					div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header>
+			<div class="center clearfix">
+				<div class="rt_head">
+					<span>
+						<img src="images/head_call.png" alt=""> 官方咨询电话：
+						<b>400-999-8235</b>
+					</span>
+					<span>
+						<img src="images/head_scan.png" />微信公众号
+					</span>
+					<span>
+						<a href="###">
+							关于我们
+						</a>
+					</span>
+				</div>
+			</div>
+		</header>
+		<!-- 导航nav -->
+		<nav>
+			<div class="center" style="position: relative;">
+				<a href="###" class="logo"></a>
+				<div class="nav_tab">
+					<a href="###">首页</a>
+					<a href="###">展示类项目</a>
+					<a href="###">交易类项目</a>
+					<a href="###">已成功项目</a>
+					<a href="###">众筹社区</a>
+				</div>
+				<a href="###" class="gradient add_zc">
+					+发起众筹
+				</a>
+				<div class="log_txt">
+					<a href="###">登录</a>|
+					<a href="###">注册</a>
+				</div>
+			</div>
+		</nav>
+		<!--间隔-->
+		<div class="Recharge_withdrawals">
+			<div class="n_box w">
+				<div class="infor">
+					<img src="images/Share_link2.png" class="n_head">
+					<div class="information">
+						<h1>张理想</h1>
+						<p>最后登录时间：2018-04-21 15:24:18</p>
+						<p class="icon_liem">
+							<i class="hy_color hy_red">认证会员</i>
+							<i class="hy_color hy_greed">白金会员</i>
+							<i class="hy_color hy_blue">钻石会员</i>
+							<i class="hy_color hy_orge">铂金会员</i>
+						</p>
+					</div>
+					<div class="tip_right">
+						<span>
+							消息<br>20
+						</span>
+						<span>
+							关注<br>15
+						</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!---->
+		<div class="tj" style="background:#F6F6F6;">
+			<div class="w">
+				<div class="center_left">
+					<ul>
+						<li class="active">
+							<i class="iconfont icon-gerenzhongxin"></i>个人设置
+						</li>
+						<li>
+							<i class="iconfont icon-dingdanxinxi"></i>订单管理
+						</li>
+						<li>
+							<i class="iconfont icon-xiangmuxiaoxi"></i>项目管理
+						</li>
+						<li>
+							<i class="iconfont icon-caifuzhongxin"></i>财富中心
+						</li>
+						<li>
+							<i class="iconfont icon-xinfeng"></i>消息中心
+						</li>
+					</ul>
+				</div>
+				<div class="center_right">
+					<ul id="title">
+						<li class="active">
+							个人资料
+						</li>
+						<li>
+							实名认证
+						</li>
+						<li>
+							修改密码
+						</li>
+						<li>
+							收货地址
+						</li>
+					</ul>
+					<div id="wrap" class="wrap-div">
+						<!--1-->
+						<div class="active">
+							<div class="head_img_up">
+								<div id="preview">
+									<img id="imghead" border="0" src="images/default.png" width="180" height="180">
+								</div>
+								<div style="font-size: 14px;;line-height: 20px;padding: 15px 0;">
+									支持jpg、jpeg、png、gif格式，<br/>大小不超过5.0MB。【推荐尺寸130px*130px】
+								</div>
+								<div class="upload_btn gradient">
+									上传头像
+									<input type="file" onchange="previewImage(this)">
+								</div>
+
+							</div>
+
+							<div class="ltem_1">
+								<span class="list_head">用户名：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">手机号：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">性别：</span>
+								<div class="ltem" style="display: inline-block;padding-bottom: 0;">
+									<label>
+										<input type="radio" name="ra" checked="checked"><i class="iconfont icon-weixuanzhong"></i>
+										男							
+									</label>
+									<label><input type="radio" name="ra"><i class="iconfont icon-weixuanzhong"></i>女</label>
+								</div>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">QQ：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">邮箱：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">现居地：</span>
+								<label>
+									<select>
+										<option>选择所在省</option>
+									</select>
+									<select>
+										<option>选择所在市</option>
+									</select>	
+									<select>
+										<option>选择所在县</option>
+									</select>	
+								</label>
+							</div>
+							<div class="buttonBox" style="width: 450px;padding-bottom: 50px;margin-left:140px;margin-top: 30px;">
+								<a class="gradient">提交</a>
+
+							</div>
+						</div>
+						<!--end-->
+						<!--2-->
+						<div>
+							<div class="nav2right pageright">
+								<div class="smPanel" style="padding-top:15px;padding-left: 0;">
+									<div class="ltem">
+										<span class="list_head">真实姓名：</span>
+										<input type="text" placeholder="请输入真实姓名！">
+									</div>
+									<div class="ltem">
+										<span class="list_head">身份证号：</span>
+										<input type="text" placeholder="请输入身份证号！">
+									</div>
+									<div class="ltem">
+										<span class="list_head">是否了解股权投资：
+										<label>
+											<input type="radio" name="ra" checked="checked"><i class="iconfont icon-weixuanzhong"></i>
+											是							
+										</label>
+										<label>
+											<input type="radio" name="ra"><i class="iconfont icon-weixuanzhong"></i>否</label>
+										</span>
+									</div>
+									<div class="ltem">
+										<span class="list_head">个人资产状况：
+										<label>
+											<input type="radio" name="ram" checked="checked"><i class="iconfont icon-weixuanzhong"></i>
+											20万以下							
+										</label>
+										<label>
+											<input type="radio" name="ram"><i class="iconfont icon-weixuanzhong"></i>20万以上</label>
+										</span>
+									</div>
+									<div class="ltem">
+										<span class="list_head">个人投资偏好：
+										<label>
+											<input type="checkbox" name="ram" checked="checked"><i class="iconfont icon-weixuanze"></i>
+											餐饮							
+										</label>
+										<label>
+											<input type="checkbox" name="ram" checked="checked"><i class="iconfont icon-weixuanze"></i>
+											公寓							
+										</label>
+										<label>
+											<input type="checkbox" name="ram"><i class="iconfont icon-weixuanze"></i>
+											酒店							
+										</label>
+										<label>
+											<input type="checkbox" name="ram"><i class="iconfont icon-weixuanze"></i>
+											培训机构							
+										</label>	
+										<label>
+											<input type="checkbox" name="ram"><i class="iconfont icon-weixuanze"></i>
+											其它							
+										</label>	
+									</span>
+									</div>
+									<div class="ltem">
+										<span class="list_head">您的单笔投资额度：
+											<label>
+												<select>
+													<option>1~10万</option>
+													<option>1~10万</option>
+													<option>1~10万</option>
+													<option>1~10万</option>
+												</select>			
+											</label>										
+										</span></div>
+									<p style="color: red;padding-bottom: 30px;font-size: 16px;">提示：真实姓名和身份证号将用于开通账户和签署投资协议，一旦认证通过将无法更改，请认真填写！</p>
+									<div class="buttonBox" style="width: 450px;padding-bottom: 50px;">
+										<a class="gradient">去认证</a>
+										<a class="tst2">返回</a>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!--end-->
+						<!--3-->
+						<div>
+							<div class="ltem_1">
+								<span class="list_head">原密码：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">新密码：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="ltem_1">
+								<span class="list_head">确认密码：</span>
+								<label>
+									<input type="text">						
+								</label>
+							</div>
+							<div class="buttonBox" style="width: 450px;padding-bottom: 50px; margin-left:140px;margin-top: 30px;">
+								<a class="gradient">保存</a>
+
+							</div>
+
+						</div>
+						<!--end-->
+						<!--4-->
+						<div>
+							<div class="tabList">
+								<table>
+									<thead>
+										<tr>
+											<th style="width:10%;">收货人</th>
+											<th style="width: 15%;">所在地区</th>
+											<th style="width: 35%;">详细地址</th>
+											<th style="width: 15%;">邮政编码</th>
+											<th style="width: 15%;">手机号</th>
+											<th style="width:10%;">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												理想同学
+											</td>
+											<td>郑州金水区</td>
+											<td>
+												花园路27号科技大厦
+											</td>
+											<td>450000</td>
+											<td>
+												18703625580
+											</td>
+											<td>
+												<a>删除</a>&nbsp;|&nbsp;
+												<a>编辑</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												理想同学
+											</td>
+											<td>郑州金水区</td>
+											<td>
+												花园路27号科技大厦
+											</td>
+											<td>450000</td>
+											<td>
+												18703625580
+											</td>
+											<td>
+												<a>删除</a>&nbsp;|&nbsp;
+												<a>编辑</a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												理想同学
+											</td>
+											<td>郑州金水区</td>
+											<td>
+												花园路27号科技大厦
+											</td>
+											<td>450000</td>
+											<td>
+												18703625580
+											</td>
+											<td>
+												<a>删除</a>&nbsp;|&nbsp;
+												<a>编辑</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="bc_qx" style="padding:20px 0">
+									<div class="buttonBox" style="width:100%;padding-bottom: 50px;text-align:center;">
+										<a class="gradient" style="width: 25%;">添加新地址</a>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nuk"></div>
+		<!---->
+		<footer>
+			<div class="w clearfix">
+				<div class="lg_footer clearfix">
+					<div class="sm_footer">
+						<div class="gplz">
+							<div class="gplz_lj">
+								<ul class="" style="">
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/1">关于我们</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/2">联系我们</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/7">众筹课堂</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/3">注册协议</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/4">发起人协议</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/5">发起人须知</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/6">支持者须知</a>
+									</li>
+								</ul>
+								<p>©2015众筹中原All rights resrved河南华晟网络科技股份有限公司 版权所有 豫ICP备 15010915号</p>
+								<p style="margin-top: 14px;">中华人民共和国增值电信业务经营许可证 经营许可证编号：豫B2-20180042</p>
+							</div>
+						</div>
+						<div class="trusted-icon">
+							<a href="http://www.51miit.com/auth/CE5B140C67E74642BB83A59AE27312EE/" target="_blank">
+								<img src="images/icp.png" alt="">
+							</a>
+							<a href="http://www.zczyw.com/Public/statics/img/shangbiaozheng.jpg" target="_blank">
+								<img src="images/shangbiaozheng.png" alt="">
+							</a>
+							<a href="http://www.zczyw.com/Public/statics/img/zhuzuoquan.jpg" target="_blank">
+								<img src="images/zhuzuoquan.png" alt="">
+							</a>
+							<a href="http://gsxt.haaic.gov.cn/company/detail.jspx?id=4F8FFD5FE3C8896FE053070A080AC15D&amp;jyzk=jyzc" target="_blank">
+								<img src="images/gongshang.png" alt="河南工商">
+							</a>
+							<a href="http://webscan.360.cn/index/checkwebsite/url/www.zczyw.com" target="_blank">
+								<!--<img border="0" src="http://webscan.360.cn/status/pai/hash/61b2506c91c6f99c2d853ff592ab0a1f"/>-->
+								<img border="0" src="images/360.png">
+							</a>
+							<a href="https://www.creditchina.gov.cn/xinyongxinxixiangqing/default.html?isEncryStr=1&amp;encryStr=fWJ3bjludDZpMjE%3D%0A&amp;name=%E6%B2%B3%E5%8D%97%E5%8D%8E%E6%99%9F%E7%BD%91%E7%BB%9C%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&amp;isEncryStr=1" target="_blank">
+								<img src="images/china.png" alt="信用中国">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- 侧边栏 -->
+		<div class="side">
+
+		</div>
+		<!--弹窗-点击修改和编辑弹出-->
+		<div class="popBox" style="display:none;">
+			<div class="popMain">
+				<h3 class="title">添加通讯地址 <span>x</span></h3>
+				<div class="smPanel" style="padding-left: 70px;">
+					<div class="ltem_1">
+						<span class="list_head">姓名：</span>
+						<label>
+							<input type="text">						
+						</label>
+					</div>
+					<div class="ltem_1">
+						<span class="list_head">所在地区：</span>
+						<label>
+							<select>
+								<option>选择所在省</option>
+							</select>
+							<select>
+								<option>选择所在市</option>
+							</select>	
+							<select>
+								<option>选择所在县</option>
+							</select>	
+						</label>
+					</div>
+					<div class="ltem_1">
+						<span class="list_head">详细地址：</span>
+						<label>
+							<input type="text">						
+						</label>
+					</div>
+					<div class="ltem_1">
+						<span class="list_head">邮编：</span>
+						<label>
+							<input type="text">						
+						</label>
+					</div>
+					<div class="ltem_1">
+						<span class="list_head">手机号：</span>
+						<label>
+							<input type="text">						
+						</label>
+					</div>
+					<div class="ltem_1">
+						<span class="list_head ltem" style="padding-bottom: 0;">
+							<label>
+								<input type="checkbox" name="ram" checked="checked"><i class="iconfont icon-weixuanze"></i>
+														
+							</label>
+						</span>
+						<label style="font-size: 16px;font-weight: normal;">设为默认通讯地址</label>
+					</div>
+					<div class="buttonBox" style="width: 450px;padding-bottom: 50px; margin-left: 7em;margin-top: 30px;">
+						<a class="gradient">提交</a>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			// 切换
+			$(function() {
+				$("#title>li").each(function(index, element) {
+					var i = index;
+					$(this).click(
+						function() {
+							$(".tab1 .ho").removeClass("ho");
+							$(this).addClass("active").siblings().removeClass("active");
+							$(".wrap-div>div:visible").hide();
+							$(".wrap-div>div:eq(" + i + ")").show();
+						}
+					)
+				});
+			})
+		</script>
+	</body>
+
+</html>

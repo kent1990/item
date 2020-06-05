@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="">
+  <meta name="format-detection" content="telephone=no">
+  <title>修改通讯地址</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/LArea.min.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/LAreaData2.js"></script>
+  <script type="text/javascript" src="js/LArea.min.js"></script>
+</head>
+<body>
+  <div class="header-nav green-header">
+    <a href="javascript:history.back(-1)" class="header-left flt icon-back-white" javascript:history.back(-1)></a>
+    <h1 class="header-title">修改地址</h1>
+    <a href="##" class="header-right frt icon-back-index"></a>
+  </div>
+  <div class="content-wrap padt48">
+    <div class="content-inner">
+      <div class="index-line"></div>
+      <div class="set-address-wrap">
+        <ul class="set-address-list">
+          <li>
+            <label>姓名</label>
+            <input type="text" placeholder="请输入通讯人姓名" value="紫林店"></input>
+          </li>
+          <li>
+            <label>手机号码</label>
+            <input type="text" placeholder="请输入手机号码" value="13526652356"></input>
+          </li>
+          <li>
+            <label>邮政编码</label>
+            <input type="text" placeholder="请输入邮政编码" value="450000"></input>
+          </li>
+          <li>
+            <label>所在地区</label>
+            <input id="demo2" type="text" placeholder="请选择所在地区" value="北京市" readonly="readonly"></input>
+            <input id="value2" type="hidden"></input>
+          </li>
+          <li class="special">
+            <label>详细地址</label>
+            <textarea placeholder="请输入详细收货地址">石家庄桥西区金水路与丰产路交叉口</textarea>
+          </li>
+        </ul>
+        <div class="index-line"></div>
+        <div class="set-address">
+          <label>设为默认通讯地址</label>
+          <div class="set-address-checkbox">
+            <input class="switch" type="checkbox" checked="checked" name="checkbox-switch" switch-type="useBalance">
+          </div>
+        </div>
+        <div class="index-line"></div>
+        <div class="delete-address"><a href="##">删除通讯地址</a></div>
+        <div class="set-address-button"><a href="##" class="common-button">修改</a></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var area2 = new LArea();
+    area2.init({
+        'trigger': '#demo2',
+        'valueTo': '#value2',
+        'keys': {
+            id: 'value',
+            name: 'text'
+        },
+        'type': 2,
+        'data': [provs_data, citys_data, dists_data]
+    });
+    
+  </script>
+</body>
+</html>

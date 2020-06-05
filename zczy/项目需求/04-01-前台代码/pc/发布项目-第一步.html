@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="">
+		<title>众筹中原-提供您身边的万元股权投资项目</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/iscroll-zoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/hammer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lrz.all.bundle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.photoClip.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.list_head {
+				float: left;
+			}
+			
+			.fm_upload {
+				float: left;
+				margin-right: 10px;
+			}
+			
+			.upload_btn_2 {
+				width: 140px;
+				height: 32px;
+				border-radius: 4px;
+				/*background-color: #ff8a00;*/
+				color: #FFFFFF;
+				font-size: 14px;
+				text-align: center;
+				line-height: 32px;
+				outline: none;
+				margin-left: 37px;
+				position: relative;
+				margin-top: 10px;
+			}
+			
+			.cover-wrap,
+			.cover-wrap1 {
+				display: none;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.4);
+				z-index: 10000000;
+				text-align: center;
+			}
+			
+			.tc_upload {
+				width: 900px;
+				height: 600px;
+				margin: 100px auto;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				border-radius: 4px;
+			}
+			#clipBtn,#clipBtn1{
+				width:120px;height: 36px;border-radius: 4px;background-color:#ff8a00;color: #FFFFFF;font-size: 14px;text-align: center;line-height: 36px;outline: none;
+			}
+			#file,#file1{
+				cursor:pointer;opacity:0;filter:alpha(opacity=0);width:100%;height:100%;position:absolute;top:0;left:0;
+			}
+			input[type=file] {}
+		</style>
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header>
+			<div class="center clearfix">
+				<div class="rt_head">
+					<span>
+						<img src="images/head_call.png" alt=""> 官方咨询电话：
+						<b>400-999-8235</b>
+					</span>
+					<span>
+						<img src="images/head_scan.png" />微信公众号
+					</span>
+					<span>
+						<a href="###">
+							关于我们
+						</a>
+					</span>
+				</div>
+			</div>
+		</header>
+		<!-- 导航nav -->
+		<nav>
+			<div class="center" style="position: relative;">
+				<a href="###" class="logo"></a>
+				<div class="nav_tab">
+					<a href="###">首页</a>
+					<a href="###">展示类项目</a>
+					<a href="###">交易类项目</a>
+					<a href="###">已成功项目</a>
+					<a href="###">众筹社区</a>
+				</div>
+				<a href="###" class="gradient add_zc">
+					+发起众筹
+				</a>
+				<div class="log_txt">
+					<a href="###">登录</a>|
+					<a href="###">注册</a>
+				</div>
+			</div>
+		</nav>
+		<!-- 轮播 -->
+		<div class="nuk"></div>
+		<div class="up"></div>
+		<!-- 详情 -->
+		<div class="tj" style="background:#F6F6F6;">
+			<div class="w" style="background:#fff;overflow: hidden;">
+				<div class="smrzTop" style="margin-bottom: 40px;">
+					<p style="color: #0BA192;padding: 35px 100px;"><i class="iconfont icon-fabubiaoshu"></i>发布项目</p>
+				</div>
+				<div class="project_status">
+					<ul>
+						<li class="active bef">
+							<span>1</span> 填写项目信息
+						</li>
+						<li>
+							<span>2</span> 填写融资信息
+						</li>
+						<li>
+							<span>3</span> 支付展示费用
+						</li>
+						<li class=" bef rig">
+							<span>4</span> 项目发布成功
+						</li>
+					</ul>
+				</div>
+				<div class="tst_box">
+					<span class="list_head">项目标题：</span>
+					<input type="text" />
+				</div>
+				<div class="tst_box">
+					<span class="list_head">众筹天数：</span>
+					<input type="text" /> 天
+				</div>
+				<div class="tst_box">
+					<span class="list_head">项目位置：</span>
+					<input type="text" />
+				</div>
+				<div class="tst_box">
+					<span class="list_head">项目类型：</span>
+					<select style="width: 200px;">
+						<option>展示类项目</option>
+					</select>
+				</div>
+				<div style="clear: both;"></div>
+				<div>
+					<div class="tst_box">
+						<span class="list_head">项目封面：</span>
+						<!--上传图片-->
+						<div class="fm_upload">
+							<div class="cover-wrap">
+								<div class="tc_upload">
+									<div id="clipArea" style="margin:10px;height: 520px;"></div>
+									<div class="" style="height:56px;line-height:36px;text-align: center;padding-top:8px;">
+										<button id="clipBtn">保存封面</button>
+									</div>
+								</div>
+							</div>
+							<div id="view" style="width:200px;height:120px;" title="请上传 500*300 的封面图片"></div>
+							<div class="upload_btn_2 gradient">
+								上传列表页头图
+								<input type="file" id="file">
+							</div>
+						</div>
+						<!---->
+						<div class="fm_upload">
+							<div class="cover-wrap1">
+								<div class="tc_upload">
+									<div id="clipArea1" style="margin:10px;height: 520px;"></div>
+									<div class="" style="height:56px;line-height:36px;text-align: center;padding-top:8px;">
+										<button id="clipBtn1">保存封面</button>
+									</div>
+								</div>
+							</div>
+							<div id="view1" style="width:200px;height:120px;" title="请上传 300*376 的封面图片"></div>
+							<div class="upload_btn_2 gradient">
+								上传详情页头图
+								<input type="file" id="file1">
+							</div>
+						</div>
+						<!--end上传图片-->
+						<!--<div class="add_fm">
+							<span>+</span>
+							<p>添加详情页头图</p>
+						</div>
+						<div class="add_fm">
+							<span>+</span>
+							<p>添加详情页头图</p>
+						</div>-->
+						<div style="clear: both;"></div>
+						<p style="color:#ea6b6b;margin:10px 0 15px 180px">
+							*列表页头图 剪切大小为500*300，详情页头图剪切大小为300*376
+							支持jpg/png/gif格式，大小不超过5.0MB。</p>
+					</div>
+					<div class="tst_box">
+						<span class="list_head">项目简介：</span>
+						<textarea style="width: 410px;height:120px;">请对您的项目做一下简单介绍（50字以内）</textarea>
+					</div>
+				</div>
+				<div class="tst_box" style="width: 100%;">
+					<span class="list_head">项目详情：</span>
+					<div style="width:1000px;height:350px;display: inline-block;background: #e1e1e1;">
+						<!--此处放编辑器-->
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+				<div class="buttonBox" style="width: 450px;padding-bottom: 50px;margin-left:180px ;margin-top: 25px;">
+					<a class="gradient">下一步</a>
+				</div>
+				
+			</div>
+		</div>
+		<div class="nuk"></div>
+		<!-- footer -->
+		<footer>
+			<div class="w clearfix">
+				<div class="lg_footer clearfix">
+					<div class="sm_footer">
+						<div class="gplz">
+							<div class="gplz_lj">
+								<ul class="" style="">
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/1">关于我们</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/2">联系我们</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/7">众筹课堂</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/3">注册协议</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/4">发起人协议</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/5">发起人须知</a>
+									</li>
+									<li> |</li>
+									<li>
+										<a href="http://www.zczyw.com/help/index/id/6">支持者须知</a>
+									</li>
+								</ul>
+								<p>©2015众筹中原All rights resrved河南华晟网络科技股份有限公司 版权所有 豫ICP备 15010915号</p>
+								<p style="margin-top: 14px;">中华人民共和国增值电信业务经营许可证 经营许可证编号：豫B2-20180042</p>
+							</div>
+						</div>
+						<div class="trusted-icon">
+							<a href="http://www.51miit.com/auth/CE5B140C67E74642BB83A59AE27312EE/" target="_blank">
+								<img src="images/icp.png" alt="">
+							</a>
+							<a href="http://www.zczyw.com/Public/statics/img/shangbiaozheng.jpg" target="_blank">
+								<img src="images/shangbiaozheng.png" alt="">
+							</a>
+							<a href="http://www.zczyw.com/Public/statics/img/zhuzuoquan.jpg" target="_blank">
+								<img src="images/zhuzuoquan.png" alt="">
+							</a>
+							<a href="http://gsxt.haaic.gov.cn/company/detail.jspx?id=4F8FFD5FE3C8896FE053070A080AC15D&amp;jyzk=jyzc" target="_blank">
+								<img src="images/gongshang.png" alt="河南工商">
+							</a>
+							<a href="http://webscan.360.cn/index/checkwebsite/url/www.zczyw.com" target="_blank">
+								<!--<img border="0" src="http://webscan.360.cn/status/pai/hash/61b2506c91c6f99c2d853ff592ab0a1f"/>-->
+								<img border="0" src="images/360.png">
+							</a>
+							<a href="https://www.creditchina.gov.cn/xinyongxinxixiangqing/default.html?isEncryStr=1&amp;encryStr=fWJ3bjludDZpMjE%3D%0A&amp;name=%E6%B2%B3%E5%8D%97%E5%8D%8E%E6%99%9F%E7%BD%91%E7%BB%9C%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&amp;isEncryStr=1" target="_blank">
+								<img src="images/china.png" alt="信用中国">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- 侧边栏 -->
+		<div class="side">
+
+		</div>
+
+
+		<script type="text/javascript">
+			//上传封面
+			//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			var clipArea = new bjj.PhotoClip("#clipArea", {
+				size: [500, 300], // 截取框的宽和高组成的数组。默认值为[260,260]
+				outputSize: [500, 300], // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+				//outputType: "jpg", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+				file: "#file", // 上传图片的<input type="file">控件的选择器或者DOM对象
+				view: "#view", // 显示截取后图像的容器的选择器或者DOM对象
+				ok: "#clipBtn", // 确认截图按钮的选择器或者DOM对象
+				loadStart: function() {
+					// 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入
+					$('.cover-wrap').fadeIn();
+					console.log("照片读取中");
+				},
+				loadComplete: function() {
+					// 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+					console.log("照片读取完成");
+				},
+				//loadError: function(event) {}, // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+				clipFinish: function(dataURL) {
+					// 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
+					$('.cover-wrap').fadeOut();
+					$('#view').css('background-size', '100% 100%');
+					console.log(dataURL);
+				}
+			});
+			//clipArea.destroy();
+		</script>
+		<script type="text/javascript">
+			//上传封面
+			//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			var clipArea = new bjj.PhotoClip("#clipArea1", {
+				size: [300, 376], // 截取框的宽和高组成的数组。默认值为[260,260]
+				outputSize: [300, 376], // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+				//outputType: "jpg", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+				file: "#file1", // 上传图片的<input type="file">控件的选择器或者DOM对象
+				view: "#view1", // 显示截取后图像的容器的选择器或者DOM对象
+				ok: "#clipBtn1", // 确认截图按钮的选择器或者DOM对象
+				loadStart: function() {
+					// 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入
+					$('.cover-wrap1').fadeIn();
+					console.log("照片读取中");
+				},
+				loadComplete: function() {
+					// 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+					console.log("照片读取完成");
+				},
+				//loadError: function(event) {}, // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+				clipFinish: function(dataURL) {
+					// 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
+					$('.cover-wrap1').fadeOut();
+					$('#view1').css('background-size', '100% 100%');
+					console.log(dataURL);
+				}
+			});
+			//clipArea.destroy();
+		</script>
+	</body>
+
+</html>
