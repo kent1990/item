@@ -3,9 +3,9 @@ package com.zhengke.pojo;
 import java.io.Serializable;
 
 public class MallGoodsClass implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Integer gcId;
+    private Integer gcId;
 
     private Integer typeId;
 

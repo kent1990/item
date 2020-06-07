@@ -17,27 +17,32 @@
 	<!-- 给当前Provider自定义个名字 -->
 	<dubbo:application name="tvmall-dubboconsumer"/>
 	<!-- 配置注册中心  -->
-	 <dubbo:registry address="192.168.180.10:2181,192.168.180.11:2181,192.168.180.12:2181" protocol="zookeeper"></dubbo:registry> 
-	 
-	<!-- <dubbo:reference id="menuDubbo" interface="com.bjsxt.dubbo.service.MenuDubboService" /> -->
+	 <dubbo:registry address="62.234.89.54:2181,62.234.89.54:2182,62.234.89.54:2183" protocol="zookeeper"/>
+<!--	 <dubbo:registry address="192.168.74.155:2181,192.168.74.155:2182,192.168.74.155:2183" protocol="zookeeper"/>-->
+<!--	<dubbo:registry address="192.168.74.210:2181,192.168.74.211:2181,192.168.74.212:2181" protocol="zookeeper"/>-->
+
+
+	<!--
+	<dubbo:reference id="menuDubbo" interface="com.bjsxt.dubbo.service.MenuDubboService" />
 	
-	<!-- <dubbo:reference id="goodsClassService" interface="com.zhengke.service.GoodsClassService" />
-	登录
+	<dubbo:reference id="goodsClassService" interface="com.zhengke.service.GoodsClassService" />
+	//登录
 	<dubbo:reference id="loginService" interface="com.zhengke.service.LoginService" />
-	订单
+	//订单
 	<dubbo:reference id="orderService" interface="com.zhengke.service.OrderService" />
 	
-	xtgl010
+	//xtgl010
 	<dubbo:reference id="xtgl010Service" interface="com.zhengke.service.sysmgr.XTGL010Service" />
-	xtgl020
+	//xtgl020
 	<dubbo:reference id="xtgl020Service" interface="com.zhengke.service.sysmgr.XTGL020Service" />
-	xtgl030
+	//xtgl030
 	<dubbo:reference id="xtgl030Service" interface="com.zhengke.service.sysmgr.XTGL030Service" />
-	xtgl040
+	//xtgl040
 	<dubbo:reference id="xtgl040Service" interface="com.zhengke.service.sysmgr.XTGL040Service" />
 	
-	数据字典
-	<dubbo:reference id="dictionaryService" interface="com.zhengke.service.directory.DictionaryService" /> -->
+	//数据字典
+	<dubbo:reference id="dictionaryService" interface="com.zhengke.service.directory.DictionaryService" />
+	-->
 	
 	<!-- 配置注解扫描 -->
 	<dubbo:annotation package="com.zhengke"/> 	

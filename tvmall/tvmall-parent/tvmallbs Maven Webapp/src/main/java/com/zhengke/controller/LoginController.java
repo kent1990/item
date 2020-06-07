@@ -146,6 +146,7 @@ public class LoginController extends BaseController {
 	 */
 	@RequestMapping("verify.do")
 	public void graphicVerify(HttpServletRequest request,HttpServletResponse response) {
+		System.out.println("-------开始调用verify.do方法---------");
 		response.setContentType("image/jpeg");  
         //禁止图像缓存。  
         response.setHeader("Pragma", "no-cache");  
@@ -153,8 +154,11 @@ public class LoginController extends BaseController {
         response.setDateHeader("Expires", 0);  
       
         HttpSession session = request.getSession(); 
-        
+
+        //获取4个长度的验证码
         String verifyCode = VerifyCode.runVerifyCode(4);
+		System.out.println("verifyCode"+verifyCode);
+		//把验证码放入session中
         session.setAttribute("verifyCode", verifyCode);
         try {
 			ImageIO.write(VerifyCode.CreateImage(verifyCode), "JPEG", response.getOutputStream());
